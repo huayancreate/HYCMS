@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <title>HYCMS Administrator's Control Panel</title>
+  <#include "/hycms_sys/head.html"/>
+  <script type="text/javascript">
+if(top!=this) {
+  top.location=this.location;
+}
+$(function() {
+  // $("#username").focus();
+  // $("#jvForm").validate();
+});
+</script>
+  <style type="text/css">
+/*body{margin:0;padding:0;font-size:12px;background:url(${base}/res/hycms/img/login/bg.jpg) top repeat-x;}*/
+.input{width:150px;height:17px;border-top:1px solid #404040;border-left:1px solid #404040;border-right:1px solid #D4D0C8;border-bottom:1px solid #D4D0C8;}
+</style>
+</head>
+<body class="bg">
+<form id="jvForm" action="login.do" method="post">
+  <#if returnUrl??>
+  <input type="hidden" name="returnUrl" value="${returnUrl}"/>
+  </#if>
+  <#if processUrl??>
+  <input type="hidden" name="processUrl" value="${processUrl}"/>
+  </#if>
+  <div class="logobg">
+    <ul>
+      <li> <b><img src="${base}/res/hycms/img/login/username.png" /></b> 
+        <input type="input" id="username" name="username" maxlength="100" class="samecss username"/>
+        <label id="errusername" style="display:none;" class="error">请输入用户名</label>
+      </li>
+      <li> <b><img src="${base}/res/hycms/img/login/password.png" /></b>
+      <input name="password" type="password" id="password" maxlength="32" class="samecss password"/>
+      <label id="errpassword" style="display:none;" class="error">请输入密码</label>
+      </li>
+      <#if errorRemaining?? && errorRemaining<=0>
+       <li class="none">
+        <b>
+          <img src="${base}/res/hycms/img/login/code.png" />
+        </b>
+        <input name="captcha" type="text" id="captcha" class="samecss code"/>
+        <img src="${base}/captcha.svl" onclick="this.src='${base}/captcha.svl?d='+new Date()*1" class="codeimg" />
+        <label id="errcode" style="display:none;" class="error">请输入验证码</label>
+      </li>
+      </#if>
+     
+      <li class="logins">
+        <input class="buut loginbg" name="login" onclick="return checkuser();" type="submit" value="" />
+        <input name="reset"  class="buut regbg"  type="reset" value="" />
+        <#if errors??>
+          <#list errors as error>
+          <label class="error">${error}</label>
+          </#list>
+        </#if>
+      </li>
+    </ul>
+  </div>
+   
+</form>
+<#include "/common/alert_message.html"/>
+</body>
+<script type="text/javascript">
+  function checkuser(){
+    if($("#username").val()==""||$("#username").val()==null){
+      $("#errusername").css("display","block");
+      return false;
+    }
+    if($("#password").val()==""||$("#password").val()==null){
+      $("#errpassword").css("display","block");
+      return false;
+    }
+    if($("#captcha").length>0){
+      if($("#captcha").val()==""||$("#captcha").val()==null){
+        $("#errcode").css("display","block");
+        return false;
+      }
+    }
+    return true;
+  }
+</script>
+</html>

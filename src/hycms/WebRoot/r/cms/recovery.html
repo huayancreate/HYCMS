@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>数据备份</title>
+<link rel="stylesheet" type="text/css"
+	href="r/cms/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="r/cms/themes/icon.css">
+<link rel="stylesheet" type="text/css" href="r/cms/demo/demo.css">
+<script type="text/javascript" src="r/cms/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="r/cms/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="r/cms/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="r/cms/recovery.js"></script>
+<link href="r/cms/backupAndRecovery.css" rel="stylesheet"
+	type="text/css" media="all" />
+</head>
+<body>
+
+	<div class="title">数据恢复</div>
+	<br />
+	<div>
+		<labe>请选择备份文件：</labe>
+		<input id="cc" class="easyui-combotree"
+			data-options="url:'ServletJsonDisplayAllBackupFiles',required:true"
+			style="width: 350px;" /> &nbsp;&nbsp;&nbsp;&nbsp; <a href="#"
+			class="easyui-linkbutton" id="refresh">立即刷新备份文件列表</a>
+		&nbsp;&nbsp;&nbsp;&nbsp; <a href="#" class="easyui-linkbutton"
+			id="set">立即恢复数据</a>
+	</div>
+
+	<!--easyui dialog-->
+	<div id="dlg" class="easyui-dialog" title="" data-options=""
+		style="width: 400px; height: 200px; padding: 10px;">
+		<div style="text-align: center">
+			<br /></br>
+			<p class="dlgContent"></p>
+			<p></p>
+		</div>
+	</div>
+</body>
+</html>

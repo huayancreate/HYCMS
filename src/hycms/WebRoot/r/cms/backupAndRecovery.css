@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+.title {
+	background: lightblue;
+	color: black;
+	font-size: large;
+}
+
+.dlgContent {
+	text-align: center;
+	color: green;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.loading {
+	width: 300px;
+}
+#timingStatus{
+	color:red;
+}

@@ -1,0 +1,17 @@
+[{
+			"id" : "1",
+			"text" : "请选择数据库备份文件",
+			"state" : "closed",
+			"children" : [{
+						"id" : "没有任何备份文件",
+						"text" : "没有任何备份文件"
+					}]
+		}, {
+			"id" : "2",
+			"text" : "请选择附件备份文件",
+			"state" : "closed",
+			"children" : [{
+						"id" : "Friend.zip",
+						"text" : "Friend.zip"
+					}]
+		}]
